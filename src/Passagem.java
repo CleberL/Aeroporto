@@ -1,4 +1,4 @@
 
-public class Passagem implements InterfacePassagem{
-
+public abstract class Passagem implements InterfacePassagem{
+	Voo voo;
 }
