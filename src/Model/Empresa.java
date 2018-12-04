@@ -1,4 +1,8 @@
+package Model;
+
 import java.util.ArrayList;
+
+import Interfaces.InterfaceEmpresa;
 
 public class Empresa implements InterfaceEmpresa {
 
@@ -15,5 +19,9 @@ public class Empresa implements InterfaceEmpresa {
 	public void addVoo(Voo novo) {
 		this.voos.add(novo);
 	}
-	
+
+	public void removeVoo(Voo remove) {
+		// TODO Auto-generated method stub
+		
+	}
 }

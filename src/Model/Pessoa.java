@@ -1,3 +1,5 @@
+package Model;
+import Interfaces.InterfacePessoa;
 
 public abstract class Pessoa implements InterfacePessoa{
 	private String nome;
