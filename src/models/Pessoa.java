@@ -1,12 +1,12 @@
-package Model;
-import Interfaces.InterfacePessoa;
+package models;
+import interfaces.InterfacePessoa;
 
 public abstract class Pessoa implements InterfacePessoa{
 	private String nome;
 	
-	public Pessoa(String nome) {
+	Pessoa(String nome) {
 		this.nome = nome;
-	}	
+	}
 	
 	public String getNome() {
 		return nome;

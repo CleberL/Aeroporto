@@ -1,12 +1,12 @@
-package Model;
+package models;
 
 import java.util.ArrayList;
 
-import Interfaces.InterfaceCliente;
+import interfaces.InterfaceCliente;
 
 public class Cliente extends Pessoa implements InterfaceCliente{
 	
-	private ArrayList<Passagem> passagens = new ArrayList<Passagem>();
+	private ArrayList<Passagem> passagens = new ArrayList<>();
 	
 	public Cliente(String nome) {
 		super(nome);

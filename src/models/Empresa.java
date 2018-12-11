@@ -1,12 +1,12 @@
-package Model;
+package models;
 
 import java.util.ArrayList;
 
-import Interfaces.InterfaceEmpresa;
+import interfaces.InterfaceEmpresa;
 
 public class Empresa implements InterfaceEmpresa {
 
-	private ArrayList<Voo> voos = new ArrayList<Voo>();
+	private ArrayList<Voo> voos = new ArrayList<>();
 
 	public Voo procurarVoo(int cod) {
 		for (Voo voo : voos) {

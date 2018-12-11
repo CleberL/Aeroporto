@@ -1,7 +1,7 @@
-package Model;
+package models;
 
 import java.util.Date;
-import Interfaces.InterfaceVoo;
+import interfaces.InterfaceVoo;
 
 public class Voo implements InterfaceVoo{
 	
