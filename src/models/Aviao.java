@@ -1,39 +1,28 @@
 package models;
-import models.interfaces.InterfaceAviao;
 
-public class Aviao implements InterfaceAviao {
-	private String cod;
-	private int qtAssentos;
-	private Piloto piloto;
+public class Aviao {
+	private int codigo;
+	private int assentos;
 
-	public Aviao(String cod, int assentos, Piloto piloto) {
-		this.cod = cod;
-		this.qtAssentos = assentos;
-		this.piloto = piloto;
+	public Aviao(int codigo, int assentos) {
+		this.codigo = codigo;
+		this.assentos = assentos;
 	}
 
-	public Piloto getPiloto() {
-		return piloto;
+	public int getCodigo() {
+		return codigo;
 	}
 
-	public void setPiloto(Piloto piloto) {
-		this.piloto = piloto;
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 
-	public String getCod() {
-		return cod;
+	public int getAssentos() {
+		return assentos;
 	}
 
-	public void setCod(String cod) {
-		this.cod = cod;
-	}
-
-	public int getQtAssentos() {
-		return qtAssentos;
-	}
-
-	public void setQtAssentos(int qtAssentos) {
-		this.qtAssentos = qtAssentos;
+	public void setAssentos(int assentos) {
+		this.assentos = assentos;
 	}
 
 }

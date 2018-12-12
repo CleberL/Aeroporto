@@ -1,7 +1,6 @@
 package models;
-import models.interfaces.InterfacePessoa;
 
-public abstract class Pessoa implements InterfacePessoa{
+public abstract class Pessoa {
 	private String nome;
 	
 	Pessoa(String nome) {
@@ -15,6 +14,5 @@ public abstract class Pessoa implements InterfacePessoa{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
 
 }

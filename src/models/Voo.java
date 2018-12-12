@@ -2,18 +2,16 @@ package models;
 
 import java.util.Date;
 
-import models.interfaces.InterfaceVoo;
-
-public class Voo implements InterfaceVoo{
+public class Voo {
 	
-	private int cod;
+	private int codigo;
 	private Aviao aviao;
 	private Local origem;
 	private Local destino;
 	private Date data;
 	
-	public Voo(int cod, Aviao aviao, Local origem, Local destino, Date data) {
-		this.cod = cod;
+	public Voo(int codigo, Aviao aviao, Local origem, Local destino, Date data) {
+		this.codigo = codigo;
 		this.aviao = aviao;
 		this.origem = origem;
 		this.destino = destino;
@@ -45,12 +43,12 @@ public class Voo implements InterfaceVoo{
 		this.data = data;
 	}
 
-	public int getCod() {
-		return cod;
+	public int getCodigo() {
+		return codigo;
 	}
 
-	public void setCod(int cod) {
-		this.cod = cod;
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 
 }

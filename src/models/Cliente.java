@@ -2,35 +2,31 @@ package models;
 
 import java.util.ArrayList;
 import models.Passagem;
-import models.interfaces.InterfaceCliente;
+import models.Pessoa;
 
-public class Cliente extends Pessoa implements InterfaceCliente{
+public class Cliente extends Pessoa {
 	
-	private ArrayList<Passagem> passagens = new ArrayList<Passagem>();
+	// private ArrayList<Passagem> passagens = new ArrayList<Passagem>();
 	
 	public Cliente(String nome) {
 		super(nome);
 	}
 
-	@Override
 	public void comprarPassagem(String local) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void consultarVoos() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void cancelarPassagem(int indice) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void listarPassagens() {
 		// TODO Auto-generated method stub
 		

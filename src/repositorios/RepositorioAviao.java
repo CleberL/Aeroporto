@@ -3,9 +3,9 @@ package repositorios;
 import java.util.ArrayList;
 
 import exception.AviaoException;
-import models.interfaces.InterfaceAviao;
+import repositorios.interfaces.InterfaceRepositorioAviao;
 
-public class RepositorioAviao {
+public class RepositorioAviao implements InterfaceRepositorioAviao {
 
 	ArrayList<InterfaceAviao> avioes = new ArrayList<InterfaceAviao>();
 
