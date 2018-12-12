@@ -1,4 +1,4 @@
-package interfaces;
+package models.interfaces;
 import java.util.Date;
 
 import models.Aviao;

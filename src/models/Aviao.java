@@ -1,5 +1,5 @@
 package models;
-import interfaces.InterfaceAviao;
+import models.interfaces.InterfaceAviao;
 
 public class Aviao implements InterfaceAviao {
 	private String cod;

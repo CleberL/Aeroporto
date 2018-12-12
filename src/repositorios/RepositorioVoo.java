@@ -1,12 +1,11 @@
-package models;
+package repositorios;
 
 import java.util.ArrayList;
+import models.Voo;
 
-import interfaces.InterfaceEmpresa;
+public class RepositorioVoo {
 
-public class Empresa implements InterfaceEmpresa {
-
-	private ArrayList<Voo> voos = new ArrayList<>();
+	private ArrayList<Voo> voos = new ArrayList<Voo>();
 
 	public Voo procurarVoo(int cod) {
 		for (Voo voo : voos) {
