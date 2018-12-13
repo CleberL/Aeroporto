@@ -3,42 +3,55 @@ package repositorios;
 import java.util.ArrayList;
 
 import exception.AviaoException;
+import models.Aviao;
 import repositorios.interfaces.InterfaceRepositorioAviao;
 
 public class RepositorioAviao implements InterfaceRepositorioAviao {
 
-	ArrayList<InterfaceAviao> avioes = new ArrayList<InterfaceAviao>();
+	ArrayList<Aviao> avioes = new ArrayList<Aviao>();
 
-	public void addAviao(InterfaceAviao a) throws AviaoException {
+	public void adicionarAviao(Aviao a) throws AviaoException {
 
 		if (a == null) {
-			throw new AviaoException("Avião nulo");
-		} else if(buscar(a.getCod()) != null) {
-			throw new AviaoException("Avião já adicionado");
+			throw new NullPointerException("AVIAO_NULO");
+		} else if(procurarAviao(a.getCodigo()) != null) {
+			throw new AviaoException("AVIAO_JA_CADASTRADO");
 		}else{
 			avioes.add(a);
 		}
 	}
 
-	public void removeAviao(InterfaceAviao a) throws AviaoException {
+	public void removerAviao(Aviao a) throws AviaoException {
 
 		if (a == null) {
-			throw new AviaoException("Avião nulo");
-		} else if(buscar(a.getCod())==null) {
-			throw new AviaoException("não existe");
+			throw new NullPointerException("AVIAO_NULO");
+		} else if(procurarAviao(a.getCodigo())==null) {
+			throw new AviaoException("AVIAO_NAO_ENCONTRADO");
 		}else{
 			avioes.remove(a);
 		}
 	}
 	
-	public InterfaceAviao buscar(String cod){
-		InterfaceAviao ret = null;
+	public Aviao procurarAviao(int cod){
+		Aviao ret = null;
 		
-		for(InterfaceAviao aviao : avioes) {
-			if(aviao.getCod() == cod) {
+		for(Aviao aviao : avioes) {
+			if(aviao.getCodigo() == cod) {
 				ret = aviao;
 			}
 		}
 		return ret;
 	}
+
+	public void editarAviao(Aviao a) throws AviaoException {
+		
+		if (a == null) {
+			throw new NullPointerException("AVIAO_NULO");
+		} else if(procurarAviao(a.getCodigo())==null) {
+			throw new AviaoException("AVIAO_NAO_ENCONTRADO");
+		}else {
+			//TODO edita alguma coisa ae
+		}
+	}
+	
 }
