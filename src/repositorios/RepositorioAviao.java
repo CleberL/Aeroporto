@@ -32,7 +32,7 @@ public class RepositorioAviao implements InterfaceRepositorioAviao {
 		}
 	}
 	
-	public Aviao procurarAviao(int cod){
+	public Aviao procurarAviao(int cod) throws AviaoException{
 		Aviao ret = null;
 		
 		for(Aviao aviao : avioes) {
@@ -40,7 +40,13 @@ public class RepositorioAviao implements InterfaceRepositorioAviao {
 				ret = aviao;
 			}
 		}
-		return ret;
+		if(ret!=null) {
+			return ret;
+		}else {
+			throw new AviaoException("AVIAO_NAO_ENCONTRADO");
+		}
+		
+		
 	}
 
 	public void editarAviao(Aviao a) throws AviaoException {

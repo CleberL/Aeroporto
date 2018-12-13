@@ -1,15 +1,26 @@
 package negocios;
 
+import exception.AviaoException;
+import exception.NegocioAviaoException;
 import models.Aviao;
 import negocios.interfaces.InterfaceNegocioAviao;
+import repositorios.RepositorioAviao;
+import repositorios.interfaces.InterfaceRepositorioAviao;
 
 public class NegocioAviao implements InterfaceNegocioAviao {
-
+	InterfaceRepositorioAviao repAviao = new RepositorioAviao();
 	
 	@Override
-	public Aviao procurarAviao(int codigo) {
-		// TODO Auto-generated method stub
-		return null;
+	public Aviao procurarAviao(int codigo) throws NegocioAviaoException{
+		Aviao retorno = null;
+		
+		try {
+			retorno = repAviao.procurarAviao(codigo);
+		}catch(AviaoException e) {
+			throw new NegocioAviaoException("");
+		}
+		
+		return retorno;
 	}
 
 	@Override
