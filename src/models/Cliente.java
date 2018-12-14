@@ -8,8 +8,8 @@ public class Cliente extends Pessoa {
 	
 	// private ArrayList<Passagem> passagens = new ArrayList<Passagem>();
 	
-	public Cliente(String nome) {
-		super(nome);
+	public Cliente(String nome, int cpf) {
+		super(nome, cpf);
 	}
 
 	public void comprarPassagem(String local) {

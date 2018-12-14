@@ -16,7 +16,7 @@ public class RepositorioPiloto implements InterfaceRepositorioPiloto {
 			throw new NullPointerException("PILOTO_NULO");
 		} else {
 			try {
-				if (procurarPiloto(a.getNome()) != null)
+				if (procurarPiloto(a.getCpf()) != null)
 					pilotos.add(a);
 			} catch (PilotoException e) {
 				throw new PilotoException("PILOTO_NAO_ENCONTRADO");
@@ -30,7 +30,7 @@ public class RepositorioPiloto implements InterfaceRepositorioPiloto {
 			throw new NullPointerException("PILOTO_NULO");
 		} else {
 			try {
-				if (procurarPiloto(a.getNome()) != null)
+				if (procurarPiloto(a.getCpf()) != null)
 					pilotos.remove(a);
 			} catch (PilotoException e) {
 				throw new PilotoException("PILOTO_NAO_ENCONTRADO");
@@ -38,11 +38,11 @@ public class RepositorioPiloto implements InterfaceRepositorioPiloto {
 		}
 	}
 
-	public Piloto procurarPiloto(String cod) throws PilotoException {
+	public Piloto procurarPiloto(int cpf) throws PilotoException {
 		Piloto ret = null;
 
 		for (Piloto piloto : pilotos) {
-			if (piloto.getNome() == cod) {
+			if (piloto.getCpf() == cpf) {
 				ret = piloto;
 			}
 		}
