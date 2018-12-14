@@ -38,7 +38,7 @@ public class RepositorioPiloto implements InterfaceRepositorioPiloto {
 		}
 	}
 
-	public Piloto procurarPiloto(int cod) throws PilotoException {
+	public Piloto procurarPiloto(String cod) throws PilotoException {
 		Piloto ret = null;
 
 		for (Piloto piloto : pilotos) {
