@@ -5,12 +5,12 @@ import java.util.Date;
 public class Voo {
 	
 	private int codigo;
-	private Aviao aviao;
+	private Aeronave aviao;
 	private Local origem;
 	private Local destino;
 	private Date data;
 	
-	public Voo(int codigo, Aviao aviao, Local origem, Local destino, Date data) {
+	public Voo(int codigo, Aeronave aviao, Local origem, Local destino, Date data) {
 		this.codigo = codigo;
 		this.aviao = aviao;
 		this.origem = origem;
@@ -18,10 +18,10 @@ public class Voo {
 		this.data = data;
 	}
 	
-	public Aviao getAviao() {
+	public Aeronave getAviao() {
 		return aviao;
 	}
-	public void setAviao(Aviao aviao) {
+	public void setAviao(Aeronave aviao) {
 		this.aviao = aviao;
 	}
 	public Local getOrigem() {

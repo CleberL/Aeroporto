@@ -9,7 +9,7 @@ public class RepositorioVoo {
 
 	public Voo procurarVoo(int cod) {
 		for (Voo voo : voos) {
-			if(voo.getCod() == cod)
+			if(voo.getCodigo() == cod)
 				return voo;
 		}
 		return null;
