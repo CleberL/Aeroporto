@@ -10,7 +10,7 @@ public class RepositorioAeronave implements InterfaceRepositorioAeronave {
 
 	ArrayList<Aeronave> aeronaves = new ArrayList<Aeronave>();
 
-	public void adicionarAviao(Aeronave a) throws AeronaveException {
+	public void adicionarAviao(Aeronave a) throws AeronaveException, NullPointerException {
 
 		if (a == null) {
 			throw new NullPointerException("AERONAVE_NULO");
