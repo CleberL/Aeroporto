@@ -1,6 +1,6 @@
 package negocios;
 
-import exception.AviaoException;
+import exception.AeronaveException;
 import exception.NegocioAviaoException;
 import models.Aeronave;
 import negocios.interfaces.InterfaceNegocioAeronave;
@@ -16,7 +16,7 @@ public class NegocioAeronave implements InterfaceNegocioAeronave {
 		
 		try {
 			retorno = repAeronave.procurarAviao(codigo);
-		}catch(AviaoException e) {
+		}catch(AeronaveException e) {
 			throw new NegocioAviaoException("");
 		}
 		

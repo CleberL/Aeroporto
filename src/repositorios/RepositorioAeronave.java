@@ -2,7 +2,7 @@ package repositorios;
 
 import java.util.ArrayList;
 
-import exception.AviaoException;
+import exception.AeronaveException;
 import models.Aeronave;
 import repositorios.interfaces.InterfaceRepositorioAeronave;
 
@@ -10,29 +10,29 @@ public class RepositorioAeronave implements InterfaceRepositorioAeronave {
 
 	ArrayList<Aeronave> aeronaves = new ArrayList<Aeronave>();
 
-	public void adicionarAviao(Aeronave a) throws AviaoException {
+	public void adicionarAviao(Aeronave a) throws AeronaveException {
 
 		if (a == null) {
-			throw new NullPointerException("AVIAO_NULO");
+			throw new NullPointerException("AERONAVE_NULO");
 		} else if(procurarAviao(a.getCodigo()) != null) {
-			throw new AviaoException("AVIAO_JA_CADASTRADO");
+			throw new AeronaveException("AERONAVE_JA_CADASTRADO");
 		}else{
 			aeronaves.add(a);
 		}
 	}
 
-	public void removerAviao(Aeronave a) throws AviaoException {
+	public void removerAviao(Aeronave a) throws AeronaveException {
 
 		if (a == null) {
-			throw new NullPointerException("AVIAO_NULO");
+			throw new NullPointerException("AERONAVE_NULO");
 		} else if(procurarAviao(a.getCodigo())==null) {
-			throw new AviaoException("AVIAO_NAO_ENCONTRADO");
+			throw new AeronaveException("AERONAVE_NAO_ENCONTRADO");
 		}else{
 			aeronaves.remove(a);
 		}
 	}
 	
-	public Aeronave procurarAviao(int cod) throws AviaoException{
+	public Aeronave procurarAviao(int cod) throws AeronaveException{
 		Aeronave ret = null;
 		
 		for(Aeronave aviao : aeronaves) {
@@ -43,7 +43,7 @@ public class RepositorioAeronave implements InterfaceRepositorioAeronave {
 		if(ret!=null) {
 			return ret;
 		}else {
-			throw new AviaoException("AVIAO_NAO_ENCONTRADO");
+			throw new AeronaveException("AERONAVE_NAO_ENCONTRADO");
 		}
 		
 		

@@ -1,13 +1,13 @@
 package repositorios.interfaces;
 
-import exception.AviaoException;
+import exception.AeronaveException;
 import models.Aeronave;
 
 public interface InterfaceRepositorioAeronave {
 
-	Aeronave procurarAviao(int codigo) throws AviaoException;
-	void adicionarAviao(Aeronave aviao) throws AviaoException;
-	void removerAviao(Aeronave aviao) throws AviaoException;
+	Aeronave procurarAviao(int codigo) throws AeronaveException;
+	void adicionarAviao(Aeronave aviao) throws AeronaveException;
+	void removerAviao(Aeronave aviao) throws AeronaveException;
 
 	
 }
