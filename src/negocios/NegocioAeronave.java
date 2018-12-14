@@ -17,7 +17,7 @@ public class NegocioAeronave implements InterfaceNegocioAeronave {
 		try {
 			retorno = repAeronave.procurarAviao(codigo);
 		}catch(AeronaveException e) {
-			throw new NegocioAviaoException("");
+			throw new NegocioAviaoException("Não foi encontrado");
 		}
 		
 		return retorno;

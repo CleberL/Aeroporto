@@ -14,39 +14,44 @@ public class RepositorioAeronave implements InterfaceRepositorioAeronave {
 
 		if (a == null) {
 			throw new NullPointerException("AERONAVE_NULO");
-		} else if(procurarAviao(a.getCodigo()) != null) {
-			throw new AeronaveException("AERONAVE_JA_CADASTRADO");
-		}else{
-			aeronaves.add(a);
+		} else {
+			try {
+				if (procurarAviao(a.getCodigo()) != null)
+					aeronaves.add(a);
+			} catch (AeronaveException e) {
+				throw new AeronaveException("AERONAVE_NAO_ENCONTRADO");
+			}
 		}
 	}
 
-	public void removerAviao(Aeronave a) throws AeronaveException {
+	public void removerAviao(Aeronave a) throws AeronaveException, NullPointerException {
 
 		if (a == null) {
 			throw new NullPointerException("AERONAVE_NULO");
-		} else if(procurarAviao(a.getCodigo())==null) {
-			throw new AeronaveException("AERONAVE_NAO_ENCONTRADO");
-		}else{
-			aeronaves.remove(a);
+		} else {
+			try {
+				if (procurarAviao(a.getCodigo()) != null)
+					aeronaves.remove(a);
+			} catch (AeronaveException e) {
+				throw new AeronaveException("AERONAVE_NAO_ENCONTRADO");
+			}
 		}
 	}
-	
-	public Aeronave procurarAviao(int cod) throws AeronaveException{
+
+	public Aeronave procurarAviao(int cod) throws AeronaveException {
 		Aeronave ret = null;
-		
-		for(Aeronave aviao : aeronaves) {
-			if(aviao.getCodigo() == cod) {
+
+		for (Aeronave aviao : aeronaves) {
+			if (aviao.getCodigo() == cod) {
 				ret = aviao;
 			}
 		}
-		if(ret!=null) {
+		if (ret != null) {
 			return ret;
-		}else {
+		} else {
 			throw new AeronaveException("AERONAVE_NAO_ENCONTRADO");
 		}
-		
-		
+
 	}
-	
+
 }
