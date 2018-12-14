@@ -32,4 +32,6 @@ public class Cliente extends Pessoa {
 		
 	}
 	
+	//TESTE AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	
 }
