@@ -41,5 +41,4 @@ public class Local
 		this.pais = pais;
 	}
 	
-	//teste
 }
