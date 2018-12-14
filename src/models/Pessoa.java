@@ -1,10 +1,12 @@
 package models;
 
 public abstract class Pessoa {
+	private int cpf;
 	private String nome;
 	
-	Pessoa(String nome) {
+	Pessoa(String nome, int cpf) {
 		this.nome = nome;
+		this.cpf = cpf;
 	}
 	
 	public String getNome() {
@@ -13,6 +15,14 @@ public abstract class Pessoa {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public int getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(int cpf) {
+		this.cpf = cpf;
 	}
 
 }
