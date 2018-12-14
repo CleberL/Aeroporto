@@ -2,21 +2,42 @@ package models;
 
 public class Local
 {
-
-	String nome;
+	String cidade, estado, pais;
 	
-	public Local(String nome)
+	public Local(String cidade, String estado, String pais)
 	{
-		this.nome = nome;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.pais = pais;
 	}
 	
-	public String getNome()
+	public String getCidade()
 	{
-		return nome;
+		return cidade;
 	}
 	
-	public void setNome(String Nome)
+	public void setCidade(String cidade)
 	{
-		this.nome = nome;
+		this.cidade = cidade;
+	}
+	
+	public String getEstado()
+	{
+		return estado;
+	}
+	
+	public void setEstado(String estado)
+	{
+		this.estado = estado;
+	}
+	
+	public String getPais()
+	{
+		return pais;
+	}
+	
+	public void setPais(String Nome)
+	{
+		this.pais = pais;
 	}
 }
