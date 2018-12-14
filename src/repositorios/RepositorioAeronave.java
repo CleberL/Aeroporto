@@ -10,13 +10,13 @@ public class RepositorioAeronave implements InterfaceRepositorioAeronave {
 
 	ArrayList<Aeronave> aeronaves = new ArrayList<Aeronave>();
 
-	public void adicionarAviao(Aeronave a) throws AeronaveException, NullPointerException {
+	public void adicionarAeronave(Aeronave a) throws AeronaveException, NullPointerException {
 
 		if (a == null) {
 			throw new NullPointerException("AERONAVE_NULO");
 		} else {
 			try {
-				if (procurarAviao(a.getCodigo()) != null)
+				if (procurarAeronave(a.getCodigo()) != null)
 					aeronaves.add(a);
 			} catch (AeronaveException e) {
 				throw new AeronaveException("AERONAVE_NAO_ENCONTRADO");
@@ -24,13 +24,13 @@ public class RepositorioAeronave implements InterfaceRepositorioAeronave {
 		}
 	}
 
-	public void removerAviao(Aeronave a) throws AeronaveException, NullPointerException {
+	public void removerAeronave(Aeronave a) throws AeronaveException, NullPointerException {
 
 		if (a == null) {
 			throw new NullPointerException("AERONAVE_NULO");
 		} else {
 			try {
-				if (procurarAviao(a.getCodigo()) != null)
+				if (procurarAeronave(a.getCodigo()) != null)
 					aeronaves.remove(a);
 			} catch (AeronaveException e) {
 				throw new AeronaveException("AERONAVE_NAO_ENCONTRADO");
@@ -38,7 +38,7 @@ public class RepositorioAeronave implements InterfaceRepositorioAeronave {
 		}
 	}
 
-	public Aeronave procurarAviao(int cod) throws AeronaveException {
+	public Aeronave procurarAeronave(int cod) throws AeronaveException {
 		Aeronave ret = null;
 
 		for (Aeronave aviao : aeronaves) {
@@ -51,7 +51,6 @@ public class RepositorioAeronave implements InterfaceRepositorioAeronave {
 		} else {
 			throw new AeronaveException("AERONAVE_NAO_ENCONTRADO");
 		}
-
 	}
 
 }

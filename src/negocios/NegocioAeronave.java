@@ -11,26 +11,26 @@ public class NegocioAeronave implements InterfaceNegocioAeronave {
 	InterfaceRepositorioAeronave repAeronave = new RepositorioAeronave();
 	
 	@Override
-	public Aeronave procurarAviao(int codigo) throws NegocioAviaoException{
+	public Aeronave procurarAeronave(int codigo) throws NegocioAviaoException{
 		Aeronave retorno = null;
 		
 		try {
-			retorno = repAeronave.procurarAviao(codigo);
+			retorno = repAeronave.procurarAeronave(codigo);
 		}catch(AeronaveException e) {
-			throw new NegocioAviaoException("Não foi encontrado");
+			throw new NegocioAviaoException("");
 		}
 		
 		return retorno;
 	}
 
 	@Override
-	public void adicionarAviao(Aeronave aeronave) {
+	public void adicionarAeronave(Aeronave aeronave) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void removerAviao(Aeronave aeronave) {
+	public void removerAeronave(Aeronave aeronave) {
 		// TODO Auto-generated method stub
 		
 	}

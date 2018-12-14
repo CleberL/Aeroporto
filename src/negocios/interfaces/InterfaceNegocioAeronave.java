@@ -5,8 +5,8 @@ import models.Aeronave;
 
 public interface InterfaceNegocioAeronave {
 	
-	Aeronave procurarAviao(int codigo) throws NegocioAviaoException;
-	void adicionarAviao(Aeronave aeronave);
-	void removerAviao(Aeronave aeronave);
+	Aeronave procurarAeronave(int codigo) throws NegocioAviaoException;
+	void adicionarAeronave(Aeronave aeronave);
+	void removerAeronave(Aeronave aeronave);
 	
 }

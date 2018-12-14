@@ -2,51 +2,56 @@ package repositorios;
 
 import java.util.ArrayList;
 
-
 import exception.PilotoException;
 import models.Piloto;
+import repositorios.interfaces.InterfaceRepositorioPiloto;
 
-public class RepositorioPiloto {
+public class RepositorioPiloto implements InterfaceRepositorioPiloto {
 	
 	private ArrayList<Piloto> pilotos = new ArrayList<Piloto>();
 	
-	public void adicionarPiloto(Piloto p) throws PilotoException, NullPointerException {
+	public void adicionarPiloto(Piloto a) throws PilotoException, NullPointerException {
 
-		if (p == null) {
+		if (a == null) {
 			throw new NullPointerException("PILOTO_NULO");
-		} else if(procurarPiloto(p.getNome()) != null) {
-			throw new PilotoException("PILOTO_JA_CADASTRADO");
-		}else{
-			pilotos.add(p);
+		} else {
+			try {
+				if (procurarPiloto(a.getNome()) != null)
+					pilotos.add(a);
+			} catch (PilotoException e) {
+				throw new PilotoException("PILOTO_NAO_ENCONTRADO");
+			}
 		}
 	}
 
-	public void removerAviao(Piloto p) throws PilotoException, NullPointerException {
+	public void removerPiloto(Piloto a) throws PilotoException, NullPointerException {
 
-		if (p == null) {
+		if (a == null) {
 			throw new NullPointerException("PILOTO_NULO");
-		} else if(procurarPiloto(p.getNome())==null) {
-			throw new PilotoException("PILOTO_NAO_ENCONTRADO");
-		}else{
-			pilotos.remove(p);
+		} else {
+			try {
+				if (procurarPiloto(a.getNome()) != null)
+					pilotos.remove(a);
+			} catch (PilotoException e) {
+				throw new PilotoException("PILOTO_NAO_ENCONTRADO");
+			}
 		}
 	}
-	
-	public Piloto procurarPiloto(String nome) throws PilotoException{
+
+	public Piloto procurarPiloto(int cod) throws PilotoException {
 		Piloto ret = null;
-		
-		for(Piloto piloto : pilotos) {
-			if(piloto.getNome() == nome) {
+
+		for (Piloto piloto : pilotos) {
+			if (piloto.getNome() == cod) {
 				ret = piloto;
 			}
 		}
-		if(ret!=null) {
+		if (ret != null) {
 			return ret;
-		}else {
+		} else {
 			throw new PilotoException("PILOTO_NAO_ENCONTRADO");
 		}
-		
-		
 	}
+
 	
 }
