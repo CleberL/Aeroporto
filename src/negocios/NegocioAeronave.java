@@ -1,7 +1,7 @@
 package negocios;
 
 import exception.AeronaveException;
-import exception.NegocioAviaoException;
+import exception.NegocioAeronaveException;
 import models.Aeronave;
 import negocios.interfaces.InterfaceNegocioAeronave;
 import repositorios.RepositorioAeronave;
@@ -11,13 +11,13 @@ public class NegocioAeronave implements InterfaceNegocioAeronave {
 	InterfaceRepositorioAeronave repAeronave = new RepositorioAeronave();
 	
 	@Override
-	public Aeronave procurarAeronave(int codigo) throws NegocioAviaoException{
+	public Aeronave procurarAeronave(int codigo) throws NegocioAeronaveException{
 		Aeronave retorno = null;
 		
 		try {
 			retorno = repAeronave.procurarAeronave(codigo);
 		}catch(AeronaveException e) {
-			throw new NegocioAviaoException("");
+			throw new NegocioAeronaveException("");
 		}
 		
 		return retorno;
