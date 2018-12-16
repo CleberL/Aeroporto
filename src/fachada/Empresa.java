@@ -1,6 +1,7 @@
-package negocios;
+package fachada;
 
 import exception.EmpresaException;
+import negocios.*;
 import negocios.interfaces.*;
 
 public class Empresa implements InterfaceEmpresa{

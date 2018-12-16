@@ -1,4 +1,4 @@
-package negocios.interfaces;
+package fachada;
 
 import exception.EmpresaException;
 
