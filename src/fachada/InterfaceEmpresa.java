@@ -4,7 +4,7 @@ import exception.EmpresaException;
 
 public interface InterfaceEmpresa {
 
-	public void comprarPassagem() throws EmpresaException;
+	public void venderPassagem() throws EmpresaException;
 
 	public void consultarPassagens()throws EmpresaException;
 

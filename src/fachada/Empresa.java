@@ -11,19 +11,20 @@ public class Empresa implements InterfaceEmpresa{
 	private InterfaceNegocioPassagem negPassagem = new NegocioPassagem();
 	
 	@Override
-	public void comprarPassagem() throws EmpresaException {
+	public void venderPassagem() throws EmpresaException {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public void consultarPassagens() throws EmpresaException {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public void cancelarPassagem(int cod) throws EmpresaException {
 		// TODO Auto-generated method stub
-		
 	}
 	
 }
