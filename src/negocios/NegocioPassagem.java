@@ -31,24 +31,6 @@ public class NegocioPassagem implements InterfaceNegocioPassagem {
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public Passagem procurarAeronave(int codigo) throws NegocioPassagemException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void adicionarAeronave(Passagem passagem) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void removerAeronave(Passagem passagem) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 }
 

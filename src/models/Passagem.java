@@ -7,9 +7,6 @@ public class Passagem{
 	private int codigo;
 	private Cliente cliente;
 	
-	
-		
-
 	public Passagem(Voo voo, int codigo, Cliente cliente) {
 		this.voo = voo;
 		this.codigo = codigo;

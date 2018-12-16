@@ -6,8 +6,8 @@ import models.Passagem;
 
 public interface InterfaceNegocioPassagem {
 	
-	Passagem procurarAeronave(int codigo) throws NegocioPassagemException;
-	void adicionarAeronave(Passagem passagem);
-	void removerAeronave(Passagem passagem);
+	public Passagem procurarPassagem(int codigo) throws NegocioPassagemException;
+	public void adicionarPassagem(Passagem passagem);
+	public void removerPassagem(Passagem passagem);
 	
 }

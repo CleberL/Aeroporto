@@ -1,6 +1,8 @@
 package negocios;
 
-public class NegocioLocal 
+import negocios.interfaces.InterfaceNegocioLocal;
+
+public class NegocioLocal implements InterfaceNegocioLocal
 {
 	
 }

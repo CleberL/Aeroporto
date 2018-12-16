@@ -36,7 +36,7 @@ public class Local
 		return pais;
 	}
 	
-	public void setPais(String Nome)
+	public void setPais(String pais)
 	{
 		this.pais = pais;
 	}

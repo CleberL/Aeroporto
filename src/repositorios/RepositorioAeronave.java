@@ -41,9 +41,9 @@ public class RepositorioAeronave implements InterfaceRepositorioAeronave {
 	public Aeronave procurarAeronave(int cod) throws AeronaveException {
 		Aeronave ret = null;
 
-		for (Aeronave aviao : aeronaves) {
-			if (aviao.getCodigo() == cod) {
-				ret = aviao;
+		for (Aeronave aeronave : aeronaves) {
+			if (aeronave.getCodigo() == cod) {
+				ret = aeronave;
 			}
 		}
 		if (ret != null) {
