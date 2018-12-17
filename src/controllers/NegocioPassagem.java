@@ -1,9 +1,9 @@
-package negocios;
+package controllers;
 
 import exception.PassagemException;
+import controllers.interfaces.InterfaceNegocioPassagem;
 import exception.NegocioPassagemException;
 import models.Passagem;
-import negocios.interfaces.InterfaceNegocioPassagem;
 import repositorios.RepositorioPassagem;
 import repositorios.interfaces.InterfaceRepositorioPassagem;
 

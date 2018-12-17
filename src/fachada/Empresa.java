@@ -1,8 +1,8 @@
 package fachada;
 
+import controllers.*;
+import controllers.interfaces.*;
 import exception.EmpresaException;
-import negocios.*;
-import negocios.interfaces.*;
 
 public class Empresa implements InterfaceEmpresa{
 	private InterfaceNegocioAeronave negAeronave = new NegocioAeronave();
