@@ -1,9 +1,9 @@
-package negocios;
+package controllers;
 
+import controllers.interfaces.InterfaceNegocioAeronave;
 import exception.AeronaveException;
 import exception.NegocioAeronaveException;
 import models.Aeronave;
-import negocios.interfaces.InterfaceNegocioAeronave;
 import repositorios.RepositorioAeronave;
 import repositorios.interfaces.InterfaceRepositorioAeronave;
 

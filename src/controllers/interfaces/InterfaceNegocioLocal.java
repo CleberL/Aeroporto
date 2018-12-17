@@ -1,4 +1,4 @@
-package negocios.interfaces;
+package controllers.interfaces;
 
 public interface InterfaceNegocioLocal
 {
