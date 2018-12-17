@@ -16,66 +16,61 @@ public class Fachada implements InterfaceFachada {
 
 	@Override
 	public int registrarAeronave(int assentos) throws InvalidInputException {
-		return 0;
+		return controllerAeronave.adicionar(assentos);
 	}
 
 	@Override
 	public Aeronave consultarAeronave(int codAeronave) throws NotFoundException {
-		return null;
+		return controllerAeronave.procurar(codAeronave);
 	}
 
 	@Override
-	public int registrarCliente(String nome, String cpf) throws InvalidInputException {
-		return 0;
+	public void registrarCliente(String nome, String cpf) throws InvalidInputException {
+		controllerCliente.adicionar(nome, cpf);
 	}
 
 	@Override
-	public Cliente consultarCliente(int codCliente) throws NotFoundException {
-		return null;
+	public Cliente consultarCliente(String cpf) throws NotFoundException {
+		return controllerCliente.procurar(cpf);
 	}
 
 	@Override
-	public int venderPassagem(int codCliente, int codVoo) throws InvalidInputException {
-		return 0;
+	public int venderPassagem(int codCliente, int codVoo, int assento) throws InvalidInputException {
+		return controllerPassagem.adicionar(codCliente, codVoo, assento);
 	}
 
 	@Override
 	public Passagem consultarPassagem(int codPassagem) throws NotFoundException {
-		return null;
+		return controllerPassagem.procurar(codPassagem);
 	}
 
 	@Override
 	public void cancelarPassagem(int codPassagem) throws NotFoundException, InvalidInputException {
-
+		controllerPassagem.remover(codPassagem);
 	}
 
 	@Override
-	public int admitirPiloto(String nome, String cpf) throws InvalidInputException {
-		return 0;
+	public void admitirPiloto(String nome, String cpf) throws InvalidInputException {
+		controllerPiloto.adicionar(nome, cpf);
 	}
 
 	@Override
 	public Piloto consultarPiloto(String cpf) throws NotFoundException {
-		return null;
-	}
-
-	@Override
-	public void demitirPiloto(String cpf) throws NotFoundException, InvalidInputException {
-
+		return controllerPiloto.procurar(cpf);
 	}
 
 	@Override
 	public int registrarVoo(int aeronave, String origem, String destino, String piloto, Date horario) throws InvalidInputException {
-		return 0;
+		return controllerVoo.adicionar(aeronave, origem, destino, piloto, horario);
 	}
 
 	@Override
 	public Voo consultarVoo(int codVoo) throws NotFoundException {
-		return null;
+		return controllerVoo.procurar(codVoo);
 	}
 
 	@Override
 	public void cancelarVoo(int codVoo) throws NotFoundException, InvalidInputException {
-
+		controllerVoo.remover(codVoo);
 	}
 }

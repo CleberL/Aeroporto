@@ -12,18 +12,17 @@ public interface InterfaceFachada {
     Aeronave consultarAeronave(int codAeronave) throws NotFoundException;
 
     // Cliente
-	int registrarCliente(String nome, String cpf) throws InvalidInputException;
-	Cliente consultarCliente(int codCliente) throws NotFoundException;
+	void registrarCliente(String nome, String cpf) throws InvalidInputException;
+	Cliente consultarCliente(String cpf) throws NotFoundException;
 
     // Passagem
-    int venderPassagem(int codCliente, int codVoo) throws InvalidInputException;
+    int venderPassagem(int codCliente, int codVoo, int assento) throws InvalidInputException;
     Passagem consultarPassagem(int codPassagem) throws NotFoundException;
     void cancelarPassagem(int codPassagem) throws NotFoundException, InvalidInputException;
 
     // Piloto
-    int admitirPiloto(String nome, String cpf) throws InvalidInputException;
+    void admitirPiloto(String nome, String cpf) throws InvalidInputException;
     Piloto consultarPiloto(String cpf) throws NotFoundException;
-    void demitirPiloto(String cpf) throws NotFoundException, InvalidInputException;
 
     // Voo
 	int registrarVoo(int aeronave, String origem, String destino, String piloto, Date horario) throws InvalidInputException;
