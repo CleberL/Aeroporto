@@ -1,6 +1,8 @@
 package repositorios;
 
 import java.util.ArrayList;
+
+import exception.VooException;
 import models.Voo;
 import repositorios.interfaces.InterfaceRepositorioVoo;
 
@@ -8,20 +10,36 @@ public class RepositorioVoo implements InterfaceRepositorioVoo {
 
 	private ArrayList<Voo> voos = new ArrayList<Voo>();
 
-	public Voo procurarVoo(int cod) {
-		for (Voo voo : voos) {
-			if(voo.getCodigo() == cod)
-				return voo;
+
+	@Override
+	public void adicionar(Voo voo) throws VooException, NullPointerException {
+		if(voo == null) {
+			throw new NullPointerException("PARAMETRO_INCORRETO");
+		} else if(!voos.contains(voo)) {
+			voos.add(voo);
+		} else {
+			throw new VooException("VOO_JA_EXISTE");
 		}
-		return null;
 	}
 
-	public void addVoo(Voo novo) {
-		this.voos.add(novo);
+	@Override
+	public void remover(Voo voo) throws VooException {
+		if(!voos.remove(voo)) {
+			throw new VooException("VOO_NAO_EXISTE");
+		}
 	}
 
-	public void removeVoo(Voo remove) {
-		// TODO Auto-generated method stub
-		
+
+	@Override
+	public Voo procurar(int codigo) {
+		return voos.get(voos.indexOf(new Voo(codigo)));
 	}
+
+	@Override
+	public ArrayList<Voo> listar() {
+		return voos;
+	}
+
+
+	// TODO: fazer editar
 }

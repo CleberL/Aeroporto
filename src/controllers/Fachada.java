@@ -16,7 +16,7 @@ public class Fachada implements InterfaceFachada {
 
 	@Override
 	public int registrarAeronave(int assentos) throws AeronaveException {
-		return controllerAeronave.adicionarAeronave(new Aeronave(assentos));
+		return controllerAeronave.adicionarAeronave(assentos);
 	}
 
 	@Override

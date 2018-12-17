@@ -5,8 +5,8 @@ import models.Piloto;
 
 public interface InterfaceRepositorioPiloto {
 
-		Piloto procurarPiloto(String cpf) throws PilotoException;
-		void adicionarPiloto(Piloto piloto) throws PilotoException, NullPointerException;
-		void removerPiloto(Piloto piloto) throws PilotoException, NullPointerException;
+	Piloto procurar(String cpf);
+	void adicionar(Piloto piloto) throws PilotoException, NullPointerException;
+	void remover(Piloto piloto) throws PilotoException;
 		
 }

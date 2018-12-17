@@ -10,47 +10,26 @@ public class RepositorioAeronave implements InterfaceRepositorioAeronave {
 
 	ArrayList<Aeronave> aeronaves = new ArrayList<Aeronave>();
 
-	public void adicionarAeronave(Aeronave a) throws AeronaveException, NullPointerException {
-
-		if (a == null) {
-			throw new NullPointerException("AERONAVE_NULO");
-		} else {
-			try {
-				if (procurarAeronave(a.getCodigo()) != null)
-					aeronaves.add(a);
-			} catch (AeronaveException e) {
-				throw new AeronaveException("AERONAVE_NAO_ENCONTRADO");
-			}
-		}
+    @Override
+	public void adicionar(Aeronave aeronave) throws AeronaveException, NullPointerException {
+        if(aeronave == null) {
+            throw new NullPointerException("PARAMETRO_INCORRETO");
+        } else if(!aeronaves.contains(aeronave)) {
+            aeronaves.add(aeronave);
+        } else {
+            throw new AeronaveException("AERONAVE_JA_EXISTE");
+        }
 	}
 
-	public void removerAeronave(Aeronave a) throws AeronaveException, NullPointerException {
-
-		if (a == null) {
-			throw new NullPointerException("AERONAVE_NULO");
-		} else {
-			try {
-				if (procurarAeronave(a.getCodigo()) != null)
-					aeronaves.remove(a);
-			} catch (AeronaveException e) {
-				throw new AeronaveException("AERONAVE_NAO_ENCONTRADO");
-			}
-		}
+    @Override
+	public void remover(Aeronave aeronave) throws AeronaveException {
+		if(!aeronaves.remove(aeronave)) {
+		    throw new AeronaveException("AERONAVE_NAO_EXISTE");
+        }
 	}
 
-	public Aeronave procurarAeronave(int cod) throws AeronaveException {
-		Aeronave ret = null;
-
-		for (Aeronave aeronave : aeronaves) {
-			if (aeronave.getCodigo() == cod) {
-				ret = aeronave;
-			}
-		}
-		if (ret != null) {
-			return ret;
-		} else {
-			throw new AeronaveException("AERONAVE_NAO_ENCONTRADO");
-		}
+    @Override
+	public Aeronave procurar(int codigo) {
+        return aeronaves.get(aeronaves.indexOf(new Aeronave(codigo)));
 	}
-
 }

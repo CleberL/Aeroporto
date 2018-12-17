@@ -8,41 +8,29 @@ import java.util.ArrayList;
 public class RepositorioCliente implements InterfaceRepositorioCliente {
 	ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 
-	public void adicionarCliente(Cliente cliente) throws NullPointerException, ClienteException {
-		if (cliente == null) {
-			throw new NullPointerException("CLIENTE_NULO");
+	@Override
+	public void adicionar(Cliente cliente) throws ClienteException, NullPointerException {
+		if(cliente == null) {
+			throw new NullPointerException("PARAMETRO_INCORRETO");
+		} else if(!clientes.contains(cliente)) {
+			clientes.add(cliente);
 		} else {
-			if (procurarCliente(cliente.getCpf()) == null) {
-				clientes.add(cliente);
-			} else {
-				throw new ClienteException("CLIENTE_JA_EXISTE");
-			}
+			throw new ClienteException("CLIENTE_JA_EXISTE");
 		}
 	}
 
-	public void removerCliente(Cliente cliente) throws NullPointerException, ClienteException {
-		if (cliente == null) {
-			throw new NullPointerException("CLIENTE_NULO");
-		} else {
-			if (procurarCliente(cliente.getCpf()) != null) {
-				clientes.remove(cliente);
-			} else {
-				throw new ClienteException("CLIENTE_NAO_EXISTE");
-			}
+	@Override
+	public void remover(Cliente cliente) throws ClienteException {
+		if(!clientes.remove(cliente)) {
+			throw new ClienteException("CLIENTE_NAO_EXISTE");
 		}
 	}
 
-	// duvida
-	public Cliente procurarCliente(String cpf) {
-		Cliente ret = null;
-
-		for (Cliente c : clientes) {
-			if (c.getCpf() == cpf) {
-				ret = c;
-			}
-		}
-
-		return ret;
+	@Override
+	public Cliente procurar(String cpf) {
+		// TODO: verificar erro de cpf == null
+		return clientes.get(clientes.indexOf(new Cliente(cpf)));
 	}
 
+	// TODO: fazer editar e listar
 }

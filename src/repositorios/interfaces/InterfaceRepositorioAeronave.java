@@ -5,9 +5,8 @@ import models.Aeronave;
 
 public interface InterfaceRepositorioAeronave {
 
-	Aeronave procurarAeronave(int codigo) throws AeronaveException;
-	void adicionarAeronave(Aeronave aeronave) throws AeronaveException, NullPointerException;
-	void removerAeronave(Aeronave aeronave) throws AeronaveException, NullPointerException;
-
+	void adicionar(Aeronave aeronave) throws AeronaveException, NullPointerException;
+	void remover(Aeronave aeronave) throws AeronaveException;
+	Aeronave procurar(int codigo);
 	
 }

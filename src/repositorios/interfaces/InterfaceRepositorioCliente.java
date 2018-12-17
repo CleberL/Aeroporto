@@ -5,10 +5,8 @@ import models.Cliente;
 
 public interface InterfaceRepositorioCliente {
 
-	public void adicionarCliente(Cliente c) throws ClienteException;
-
-	public void removerCliente(Cliente c) throws ClienteException;
-
-	public Cliente procurarCliente(String cpf);
+	void adicionar(Cliente cliente) throws ClienteException, NullPointerException;
+	void remover(Cliente cliente) throws ClienteException;
+	Cliente procurar(String cpf);
 
 }

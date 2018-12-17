@@ -5,53 +5,35 @@ import java.util.ArrayList;
 
 import exception.PassagemException;
 import models.Passagem;
+import repositorios.interfaces.InterfaceRepositorioPassagem;
 
-public class RepositorioPassagem {
+public class RepositorioPassagem implements InterfaceRepositorioPassagem {
 	
 	private ArrayList<Passagem> passagens = new ArrayList<Passagem>();
-	
-	public void adicionarPassagem(Passagem nova) throws PassagemException, NullPointerException {
 
-		if (nova == null) {
-			throw new NullPointerException("PASSAGEM_NULA");
+
+	@Override
+	public void adicionar(Passagem passagem) throws PassagemException, NullPointerException {
+		if(passagem == null) {
+			throw new NullPointerException("PARAMETRO_INCORRETO");
+		} else if(!passagens.contains(passagem)) {
+			passagens.add(passagem);
 		} else {
-			try {
-				if (procurarPassagem(nova.getCodigo()) != null)
-					passagens.add(nova);
-			} catch (PassagemException e) {
-				throw new PassagemException("PASSAGEM_NAO_ENCONTRADA");
-			}
+			throw new PassagemException("PASSAGEM_JA_EXISTE");
 		}
 	}
 
-	public Passagem procurarPassagem(int codigo) throws PassagemException {
-		Passagem ret = null;
-
-		for (Passagem passagem : passagens) {
-			if(passagem.getCodigo() == codigo) {
-				ret = passagem;
-			}
-		}
-		if (ret != null) {
-			return ret;
-		} else {
-			throw new PassagemException("PASSAGEM_NAO_ENCONTRADA");
+	@Override
+	public void remover(Passagem passagem) throws PassagemException {
+		if(!passagens.remove(passagem)) {
+			throw new PassagemException("PASSAGEM_NAO_EXISTE");
 		}
 	}
 
-	
-	public void removerPassagem(Passagem p) throws PassagemException, NullPointerException {
-
-		if (p == null) {
-			throw new NullPointerException("PASSAGEM_NULA");
-		} else {
-			try {
-				if (procurarPassagem(p.getCodigo()) != null)
-					passagens.remove(p);
-			} catch (PassagemException e) {
-				throw new PassagemException("PASSAGEM_NAO_ENCONTRADA");
-			}
-		}
+	@Override
+	public Passagem procurar(int codigo) {
+		return passagens.get(passagens.indexOf(new Passagem(codigo)));
 	}
 
+	// TODO: fazer listar
 }

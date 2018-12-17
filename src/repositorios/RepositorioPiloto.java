@@ -9,49 +9,29 @@ import repositorios.interfaces.InterfaceRepositorioPiloto;
 public class RepositorioPiloto implements InterfaceRepositorioPiloto {
 	
 	private ArrayList<Piloto> pilotos = new ArrayList<Piloto>();
-	
-	public void adicionarPiloto(Piloto a) throws PilotoException, NullPointerException {
 
-		if (a == null) {
-			throw new NullPointerException("PILOTO_NULO");
+	@Override
+	public void adicionar(Piloto piloto) throws PilotoException, NullPointerException {
+		if(piloto == null) {
+			throw new NullPointerException("PARAMETRO_INCORRETO");
+		} else if(!pilotos.contains(piloto)) {
+			pilotos.add(piloto);
 		} else {
-			try {
-				if (procurarPiloto(a.getCpf()) != null)
-					pilotos.add(a);
-			} catch (PilotoException e) {
-				throw new PilotoException("PILOTO_NAO_ENCONTRADO");
-			}
+			throw new PilotoException("PILOTO_JA_EXISTE");
 		}
 	}
 
-	public void removerPiloto(Piloto a) throws PilotoException, NullPointerException {
-
-		if (a == null) {
-			throw new NullPointerException("PILOTO_NULO");
-		} else {
-			try {
-				if (procurarPiloto(a.getCpf()) != null)
-					pilotos.remove(a);
-			} catch (PilotoException e) {
-				throw new PilotoException("PILOTO_NAO_ENCONTRADO");
-			}
+	@Override
+	public void remover(Piloto piloto) throws PilotoException {
+		if(!pilotos.remove(piloto)) {
+			throw new PilotoException("PILOTO_NAO_EXISTE");
 		}
 	}
 
-	public Piloto procurarPiloto(String cpf) throws PilotoException {
-		Piloto ret = null;
-
-		for (Piloto piloto : pilotos) {
-			if (piloto.getCpf() == cpf) {
-				ret = piloto;
-			}
-		}
-		if (ret != null) {
-			return ret;
-		} else {
-			throw new PilotoException("PILOTO_NAO_ENCONTRADO");
-		}
+	@Override
+	public Piloto procurar(String cpf) {
+		return pilotos.get(pilotos.indexOf(new Piloto(cpf)));
 	}
 
-	
+	// TODO: fazer editar e listar
 }

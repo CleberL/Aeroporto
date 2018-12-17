@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Voo {
 	private int codigo;
@@ -10,14 +11,18 @@ public class Voo {
 	private String piloto;
 	private Date horario;
 
-	public Voo(int codigo, int aeronave, String origem, String destino, String piloto, Date horario) {
-		this.codigo = codigo;
-		this.aeronave = aeronave;
-		this.origem = origem;
-		this.destino = destino;
-		this.piloto = piloto;
-		this.horario = horario;
-	}
+    public Voo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public Voo(int codigo, int aeronave, String origem, String destino, String piloto, Date horario) {
+        this.codigo = codigo;
+        this.aeronave = aeronave;
+        this.origem = origem;
+        this.destino = destino;
+        this.piloto = piloto;
+        this.horario = horario;
+    }
 
 	public int getCodigo() {
 		return codigo;
@@ -66,4 +71,17 @@ public class Voo {
 	public void setHorario(Date horario) {
 		this.horario = horario;
 	}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Voo voo = (Voo) o;
+        return codigo == voo.codigo;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigo);
+    }
 }

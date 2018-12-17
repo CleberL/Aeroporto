@@ -1,14 +1,20 @@
 package models;
 
+import java.util.Objects;
+
 public class Passagem{
+    private int codigo;
 	private int voo;
-	private int codigo;
 	private int cliente;
 	private int assento;
 
-    public Passagem(int voo, int codigo, int cliente, int assento) {
+    public Passagem(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public Passagem(int codigo, int voo, int cliente, int assento) {
+        this.codigo = codigo;
 		this.voo = voo;
-		this.codigo = codigo;
 		this.cliente = cliente;
 		this.assento = assento;
 	}
@@ -43,5 +49,18 @@ public class Passagem{
 
     public void setAssento(int assento) {
         this.assento = assento;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Passagem passagem = (Passagem) o;
+        return codigo == passagem.codigo;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigo);
     }
 }

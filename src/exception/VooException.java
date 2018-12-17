@@ -1,7 +1,7 @@
 package exception;
 
 public class VooException extends Exception {
-    VooException(String msg) {
+    public VooException(String msg) {
         super(msg);
     }
 }

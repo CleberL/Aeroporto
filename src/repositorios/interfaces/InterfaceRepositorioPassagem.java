@@ -5,9 +5,8 @@ import models.Passagem;
 
 public interface InterfaceRepositorioPassagem {
 
-	Passagem procurarPassagem(int codigo) throws PassagemException;
-	void adicionarPassagem(Passagem passagem) throws PassagemException, NullPointerException;
-	void removerPassagem(Passagem passagem) throws PassagemException, NullPointerException;
+	Passagem procurar(int codigo);
+	void adicionar(Passagem passagem) throws PassagemException, NullPointerException;
+	void remover(Passagem passagem) throws PassagemException;
 
-	
 }
