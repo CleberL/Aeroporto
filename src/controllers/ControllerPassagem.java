@@ -1,12 +1,12 @@
 package controllers;
 
 import exception.PassagemException;
-import controllers.interfaces.InterfaceNegocioPassagem;
+import controllers.interfaces.InterfaceControllerPassagem;
 import models.Passagem;
 import repositorios.RepositorioPassagem;
 import repositorios.interfaces.InterfaceRepositorioPassagem;
 
-public class NegocioPassagem implements InterfaceNegocioPassagem {
+public class ControllerPassagem implements InterfaceControllerPassagem {
 	InterfaceRepositorioPassagem repPassagem = (InterfaceRepositorioPassagem) new RepositorioPassagem();
 
 	public Passagem procurarPassagem(int codigo) throws PassagemException {

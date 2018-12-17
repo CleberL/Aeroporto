@@ -4,11 +4,13 @@ public class Passagem{
 	private int voo;
 	private int codigo;
 	private int cliente;
+	private int assento;
 	
-	Passagem(int voo, int codigo, int cliente) {
+	Passagem(int voo, int codigo, int cliente, int assento) {
 		this.voo = voo;
 		this.codigo = codigo;
 		this.cliente = cliente;
+		this.assento = assento;
 	}
 
 	public int getVoo() {
@@ -34,4 +36,12 @@ public class Passagem{
 	public void setCliente(int cliente) {
 		this.cliente = cliente;
 	}
+
+    public int getAssento() {
+        return assento;
+    }
+
+    public void setAssento(int assento) {
+        this.assento = assento;
+    }
 }

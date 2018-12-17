@@ -3,7 +3,7 @@ package controllers.interfaces;
 import exception.AeronaveException;
 import models.Aeronave;
 
-public interface InterfaceNegocioAeronave {
+public interface InterfaceControllerAeronave {
 
 	public Aeronave procurarAeronave(int codigo) throws AeronaveException;
 

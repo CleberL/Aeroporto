@@ -1,12 +1,12 @@
 package controllers;
 
-import controllers.interfaces.InterfaceNegocioAeronave;
+import controllers.interfaces.InterfaceControllerAeronave;
 import exception.AeronaveException;
 import models.Aeronave;
 import repositorios.RepositorioAeronave;
 import repositorios.interfaces.InterfaceRepositorioAeronave;
 
-public class NegocioAeronave implements InterfaceNegocioAeronave {
+public class ControllerAeronave implements InterfaceControllerAeronave {
 	InterfaceRepositorioAeronave repAeronave = new RepositorioAeronave();
 
 	public Aeronave procurarAeronave(int codigo) throws AeronaveException {

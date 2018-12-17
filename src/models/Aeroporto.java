@@ -1,12 +1,12 @@
 package models;
 
-public class Local {
+public class Aeroporto {
     private String codigo;
 	private String cidade;
 	private String estado;
 	private String pais;
 
-	Local(String codigo, String cidade, String estado, String pais) {
+	Aeroporto(String codigo, String cidade, String estado, String pais) {
         this.codigo = codigo;
 		this.cidade = cidade;
 		this.estado = estado;

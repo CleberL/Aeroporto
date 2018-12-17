@@ -5,19 +5,17 @@ import java.util.Date;
 public class Voo {
 	private int codigo;
 	private int aviao;
-	private String localOrigem;
-	private String localDestino;
+	private String origem;
+	private String destino;
 	private String piloto;
-	private String copiloto;
 	private Date horario;
 
-	public Voo(int codigo, int aviao, String localOrigem, String localDestino, String piloto, String copiloto, Date horario) {
+	public Voo(int codigo, int aviao, String origem, String destino, String piloto, Date horario) {
 		this.codigo = codigo;
 		this.aviao = aviao;
-		this.localOrigem = localOrigem;
-		this.localDestino = localDestino;
+		this.origem = origem;
+		this.destino = destino;
 		this.piloto = piloto;
-		this.copiloto = copiloto;
 		this.horario = horario;
 	}
 
@@ -37,20 +35,20 @@ public class Voo {
 		this.aviao = aviao;
 	}
 
-	public String getLocalOrigem() {
-		return localOrigem;
+	public String getOrigem() {
+		return origem;
 	}
 
-	public void setLocalOrigem(String localOrigem) {
-		this.localOrigem = localOrigem;
+	public void setOrigem(String origem) {
+		this.origem = origem;
 	}
 
-	public String getLocalDestino() {
-		return localDestino;
+	public String getDestino() {
+		return destino;
 	}
 
-	public void setLocalDestino(String localDestino) {
-		this.localDestino = localDestino;
+	public void setDestino(String destino) {
+		this.destino = destino;
 	}
 
 	public String getPiloto() {
@@ -59,14 +57,6 @@ public class Voo {
 
 	public void setPiloto(String piloto) {
 		this.piloto = piloto;
-	}
-
-	public String getCopiloto() {
-		return copiloto;
-	}
-
-	public void setCopiloto(String copiloto) {
-		this.copiloto = copiloto;
 	}
 
 	public Date getHorario() {
