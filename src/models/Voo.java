@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class Voo {
 	private int codigo;
-	private int aviao;
+	private int aeronave;
 	private String origem;
 	private String destino;
 	private String piloto;
 	private Date horario;
 
-	public Voo(int codigo, int aviao, String origem, String destino, String piloto, Date horario) {
+	public Voo(int codigo, int aeronave, String origem, String destino, String piloto, Date horario) {
 		this.codigo = codigo;
-		this.aviao = aviao;
+		this.aeronave = aeronave;
 		this.origem = origem;
 		this.destino = destino;
 		this.piloto = piloto;
@@ -27,12 +27,12 @@ public class Voo {
 		this.codigo = codigo;
 	}
 
-	public int getAviao() {
-		return aviao;
+	public int getAeronave() {
+		return aeronave;
 	}
 
-	public void setAviao(int aviao) {
-		this.aviao = aviao;
+	public void setAeronave(int aeronave) {
+		this.aeronave = aeronave;
 	}
 
 	public String getOrigem() {
