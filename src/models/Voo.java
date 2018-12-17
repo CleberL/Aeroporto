@@ -3,44 +3,22 @@ package models;
 import java.util.Date;
 
 public class Voo {
-	
 	private int codigo;
-	private Aeronave aviao;
-	private Local origem;
-	private Local destino;
-	private Date data;
-	
-	public Voo(int codigo, Aeronave aviao, Local origem, Local destino, Date data) {
+	private int aviao;
+	private String localOrigem;
+	private String localDestino;
+	private String piloto;
+	private String copiloto;
+	private Date horario;
+
+	public Voo(int codigo, int aviao, String localOrigem, String localDestino, String piloto, String copiloto, Date horario) {
 		this.codigo = codigo;
 		this.aviao = aviao;
-		this.origem = origem;
-		this.destino = destino;
-		this.data = data;
-	}
-	
-	public Aeronave getAviao() {
-		return aviao;
-	}
-	public void setAviao(Aeronave aviao) {
-		this.aviao = aviao;
-	}
-	public Local getOrigem() {
-		return origem;
-	}
-	public void setOrigem(Local origem) {
-		this.origem = origem;
-	}
-	public Local getDestino() {
-		return destino;
-	}
-	public void setDestino(Local destino) {
-		this.destino = destino;
-	}
-	public Date getData() {
-		return data;
-	}
-	public void setData(Date data) {
-		this.data = data;
+		this.localOrigem = localOrigem;
+		this.localDestino = localDestino;
+		this.piloto = piloto;
+		this.copiloto = copiloto;
+		this.horario = horario;
 	}
 
 	public int getCodigo() {
@@ -51,4 +29,51 @@ public class Voo {
 		this.codigo = codigo;
 	}
 
+	public int getAviao() {
+		return aviao;
+	}
+
+	public void setAviao(int aviao) {
+		this.aviao = aviao;
+	}
+
+	public String getLocalOrigem() {
+		return localOrigem;
+	}
+
+	public void setLocalOrigem(String localOrigem) {
+		this.localOrigem = localOrigem;
+	}
+
+	public String getLocalDestino() {
+		return localDestino;
+	}
+
+	public void setLocalDestino(String localDestino) {
+		this.localDestino = localDestino;
+	}
+
+	public String getPiloto() {
+		return piloto;
+	}
+
+	public void setPiloto(String piloto) {
+		this.piloto = piloto;
+	}
+
+	public String getCopiloto() {
+		return copiloto;
+	}
+
+	public void setCopiloto(String copiloto) {
+		this.copiloto = copiloto;
+	}
+
+	public Date getHorario() {
+		return horario;
+	}
+
+	public void setHorario(Date horario) {
+		this.horario = horario;
+	}
 }

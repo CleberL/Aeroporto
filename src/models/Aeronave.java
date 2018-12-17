@@ -4,7 +4,7 @@ public class Aeronave {
 	private int codigo;
 	private int assentos;
 
-	public Aeronave(int codigo, int assentos) {
+	Aeronave(int codigo, int assentos) {
 		this.codigo = codigo;
 		this.assentos = assentos;
 	}
@@ -24,5 +24,4 @@ public class Aeronave {
 	public void setAssentos(int assentos) {
 		this.assentos = assentos;
 	}
-
 }

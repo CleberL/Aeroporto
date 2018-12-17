@@ -1,16 +1,26 @@
 package models;
 
-public class Local
-{
-	String cidade, estado, pais;
-	
-	public Local(String cidade, String estado, String pais)
-	{
+public class Local {
+    private String codigo;
+	private String cidade;
+	private String estado;
+	private String pais;
+
+	Local(String codigo, String cidade, String estado, String pais) {
+        this.codigo = codigo;
 		this.cidade = cidade;
 		this.estado = estado;
 		this.pais = pais;
 	}
-	
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
 	public String getCidade()
 	{
 		return cidade;
@@ -40,5 +50,4 @@ public class Local
 	{
 		this.pais = pais;
 	}
-	
 }

@@ -7,18 +7,12 @@ public class ComprarPassagem implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("Morgana vai pro céu");
 		new Thread() {
+			@Override
 			public void run() {
-				System.out.println("Morgana vai pro céu");
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				System.out.println("Morgana vai pro céu");
+				System.out.println("Botão pressionado!");
 			}
-		};
+		}.start();
 	}
 	
 }
