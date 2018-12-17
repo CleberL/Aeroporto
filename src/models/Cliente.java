@@ -5,6 +5,14 @@ public class Cliente extends Pessoa {
 
 	Cliente(String nome, String cpf, int id) {
 		super(nome, cpf);
+		this.setId(id);
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
 		this.id = id;
 	}	
 }

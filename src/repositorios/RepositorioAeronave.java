@@ -20,7 +20,6 @@ public class RepositorioAeronave implements InterfaceRepositorioAeronave {
 					aeronaves.add(a);
 			} catch (AeronaveException e) {
 				throw new AeronaveException("AERONAVE_NAO_ENCONTRADO");
-				//acho que ta errado. Pessoalmente explico
 			}
 		}
 	}
