@@ -2,44 +2,56 @@ package controllers;
 
 import controllers.interfaces.InterfaceControllerAeronave;
 import exception.AeronaveException;
+import exception.InvalidInputException;
+import exception.NotFoundException;
 import models.Aeronave;
 import repositorios.RepositorioAeronave;
 import repositorios.interfaces.InterfaceRepositorioAeronave;
 
+import java.util.Random;
+
 public class ControllerAeronave implements InterfaceControllerAeronave {
+
 	InterfaceRepositorioAeronave repAeronave = new RepositorioAeronave();
 
-	public Aeronave procurarAeronave(int codigo) throws AeronaveException {
-		Aeronave retorno = null;
+	@Override
+	public int adicionar(int assentos) throws InvalidInputException {
+        Random random = new Random();
+        int codigo = random.nextInt(99999);
 
-		try {
-			retorno = repAeronave.procurarAeronave(codigo);
-		} catch (AeronaveException e) {
-			throw new AeronaveException("");
-		}
+        Aeronave aeronave = new Aeronave(codigo, assentos);
 
-		return retorno;
+        try {
+            repAeronave.adicionar(aeronave);
+        } catch(AeronaveException e) {
+            codigo = adicionar(assentos);
+        } catch (NullPointerException e) {
+            throw new InvalidInputException("AERONAVE");
+        }
+
+        return codigo;
 	}
 
-	public void adicionarAeronave(Aeronave aeronave) throws AeronaveException, NullPointerException {
-		try {
-			repAeronave.adicionarAeronave(aeronave);
-		} catch (AeronaveException e) {
-			throw new AeronaveException("");
-		} catch (NullPointerException e) {
-			throw new NullPointerException("");
-		}
+    @Override
+	public void remover(int codigo) throws NotFoundException, InvalidInputException {
+	    try {
+            repAeronave.remover(new Aeronave(codigo));
+        } catch (AeronaveException e) {
+	        throw new NotFoundException("AERONAVE");
+        } catch (NullPointerException e) {
+	        throw new InvalidInputException("AERONAVE");
+        }
 	}
 
-	public void removerAeronave(Aeronave aeronave) throws AeronaveException, NullPointerException {
-		try {
-			repAeronave.removerAeronave(aeronave);
-		} catch (AeronaveException e) {
-			throw new AeronaveException("");
-		} catch (NullPointerException e) {
-			throw new NullPointerException("");
-		}
+    @Override
+    public Aeronave procurar(int codigo) throws NotFoundException {
+        Aeronave aeronave = repAeronave.procurar(codigo);
 
-	}
+        if(aeronave == null) {
+            throw new NotFoundException("AERONAVE");
+        }
+
+        return aeronave;
+    }
 
 }

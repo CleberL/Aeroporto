@@ -1,11 +1,13 @@
 package controllers.interfaces;
 
-import exception.AeronaveException;
+import exception.InvalidInputException;
+import exception.NotFoundException;
 import models.Aeronave;
 
 public interface InterfaceControllerAeronave {
 
-	public Aeronave procurarAeronave(int codigo) throws AeronaveException;
-	public int adicionarAeronave(Aeronave aeronave) throws AeronaveException, NullPointerException;
+    int adicionar(int assentos) throws InvalidInputException;
+    void remover(int codigo) throws NotFoundException, InvalidInputException;
+    Aeronave procurar(int codigo) throws NotFoundException;
 
 }

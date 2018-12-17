@@ -16,12 +16,12 @@ public class Fachada implements InterfaceFachada {
 
 	@Override
 	public int registrarAeronave(int assentos) throws AeronaveException {
-		return controllerAeronave.adicionarAeronave(assentos);
+		return controllerAeronave.adicionar(assentos);
 	}
 
 	@Override
 	public Aeronave consultarAeronave(int codAeronave) throws AeronaveException {
-		return controllerAeronave.procurarAeronave(codAeronave);
+		return controllerAeronave.procurar(codAeronave);
 	}
 
 	@Override

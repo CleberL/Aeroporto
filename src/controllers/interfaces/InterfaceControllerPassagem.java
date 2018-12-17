@@ -1,13 +1,14 @@
 package controllers.interfaces;
 
 
-import exception.PassagemException;
+import exception.InvalidInputException;
+import exception.NotFoundException;
 import models.Passagem;
 
 public interface InterfaceControllerPassagem {
 	
-	public Passagem procurarPassagem(int codigo) throws PassagemException;
-	public void adicionarPassagem(Passagem passagem);
-	public void removerPassagem(Passagem passagem);
-	
+	int adicionar(int voo, int cliente, int assento) throws InvalidInputException;
+	void remover(int codigo) throws NotFoundException, InvalidInputException;
+	Passagem procurar(int codigo) throws NotFoundException;
+
 }

@@ -1,34 +1,56 @@
 package controllers;
 
+import exception.InvalidInputException;
+import exception.NotFoundException;
 import exception.PassagemException;
 import controllers.interfaces.InterfaceControllerPassagem;
 import models.Passagem;
 import repositorios.RepositorioPassagem;
 import repositorios.interfaces.InterfaceRepositorioPassagem;
 
-public class ControllerPassagem implements InterfaceControllerPassagem {
-	InterfaceRepositorioPassagem repPassagem = (InterfaceRepositorioPassagem) new RepositorioPassagem();
+import java.util.Random;
 
-	public Passagem procurarPassagem(int codigo) throws PassagemException {
-		Passagem retorno = null;
+public class ControllerPassagem implements InterfaceControllerPassagem {
+
+	InterfaceRepositorioPassagem repPassagem = new RepositorioPassagem();
+
+	@Override
+	public int adicionar(int voo, int cliente, int assento) throws InvalidInputException {
+		Random random = new Random();
+		int codigo = random.nextInt(99999);
+
+		Passagem passagem = new Passagem(codigo, voo, cliente, assento);
 
 		try {
-			retorno = repPassagem.procurarPassagem(codigo);
-		} catch (PassagemException e) {
-			throw new PassagemException("");
+			repPassagem.adicionar(passagem);
+		} catch(PassagemException e) {
+			codigo = adicionar(voo, cliente, assento);
+		} catch (NullPointerException e) {
+			throw new InvalidInputException("PASSAGEM");
 		}
 
-		return retorno;
+		return codigo;
 	}
 
-	public void adicionarPassagem(Passagem passagem) {
-		// TODO Auto-generated method stub
-
+	@Override
+	public void remover(int codigo) throws NotFoundException, InvalidInputException {
+		try {
+			repPassagem.remover(new Passagem(codigo));
+		} catch (PassagemException e) {
+			throw new NotFoundException("PASSAGEM");
+		} catch (NullPointerException e) {
+			throw new InvalidInputException("PASSAGEM");
+		}
 	}
 
-	public void removerPassagem(Passagem passagem) {
-		// TODO Auto-generated method stub
+	@Override
+	public Passagem procurar(int codigo) throws NotFoundException {
+		Passagem passagem = repPassagem.procurar(codigo);
 
+		if(passagem == null) {
+			throw new NotFoundException("PASSAGEM");
+		}
+
+		return passagem;
 	}
-
 }

@@ -10,7 +10,7 @@ public class Aeronave {
 		this.codigo = codigo;
 	}
 
-	Aeronave(int codigo, int assentos) {
+	public Aeronave(int codigo, int assentos) {
 		this.codigo = codigo;
 		this.assentos = assentos;
 	}
