@@ -2,8 +2,9 @@ package repositorios;
 
 import java.util.ArrayList;
 import models.Voo;
+import repositorios.interfaces.InterfaceRepositorioVoo;
 
-public class RepositorioVoo {
+public class RepositorioVoo implements InterfaceRepositorioVoo {
 
 	private ArrayList<Voo> voos = new ArrayList<Voo>();
 
