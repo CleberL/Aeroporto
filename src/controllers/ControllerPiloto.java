@@ -1,6 +1,6 @@
 package controllers;
 
-import controllers.interfaces.InterfaceControllerVoo;
+import controllers.interfaces.InterfaceControllerPiloto;
 
-public class ControllerPiloto implements InterfaceControllerVoo {
+public class ControllerPiloto implements InterfaceControllerPiloto {
 }

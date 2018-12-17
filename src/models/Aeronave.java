@@ -4,6 +4,10 @@ public class Aeronave {
 	private int codigo;
 	private int assentos;
 
+	public Aeronave(int assentos){
+		this.assentos = assentos;
+	}
+
 	Aeronave(int codigo, int assentos) {
 		this.codigo = codigo;
 		this.assentos = assentos;

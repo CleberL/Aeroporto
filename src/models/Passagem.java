@@ -5,8 +5,8 @@ public class Passagem{
 	private int codigo;
 	private int cliente;
 	private int assento;
-	
-	Passagem(int voo, int codigo, int cliente, int assento) {
+
+    public Passagem(int voo, int codigo, int cliente, int assento) {
 		this.voo = voo;
 		this.codigo = codigo;
 		this.cliente = cliente;

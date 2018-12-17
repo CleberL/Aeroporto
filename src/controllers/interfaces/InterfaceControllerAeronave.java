@@ -6,9 +6,6 @@ import models.Aeronave;
 public interface InterfaceControllerAeronave {
 
 	public Aeronave procurarAeronave(int codigo) throws AeronaveException;
-
-	public void adicionarAeronave(Aeronave aeronave) throws AeronaveException, NullPointerException;
-
-	public void removerAeronave(Aeronave aeronave) throws AeronaveException, NullPointerException;
+	public int adicionarAeronave(Aeronave aeronave) throws AeronaveException, NullPointerException;
 
 }
