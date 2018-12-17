@@ -15,77 +15,67 @@ public class Fachada implements InterfaceFachada {
 
 
 	@Override
-	public int registrarAeronave(int assentos) throws AeronaveException {
-		return controllerAeronave.adicionar(assentos);
-	}
-
-	@Override
-	public Aeronave consultarAeronave(int codAeronave) throws AeronaveException {
-		return controllerAeronave.procurar(codAeronave);
-	}
-
-	@Override
-	public int registrarCliente(String nome, String cpf) throws ClienteException {
-		return controllerCliente;
-	}
-
-	@Override
-	public Cliente consultarCliente(int codCliente) throws ClienteException {
-		return null;
-	}
-
-	@Override
-	public void modificarCliente(Cliente cliente) throws ClienteException {
-
-	}
-
-	@Override
-	public int venderPassagem(int codCliente, int codVoo) throws PassagemException {
+	public int registrarAeronave(int assentos) throws InvalidInputException {
 		return 0;
 	}
 
 	@Override
-	public Passagem consultarPassagem(int codPassagem) throws PassagemException {
+	public Aeronave consultarAeronave(int codAeronave) throws NotFoundException {
 		return null;
 	}
 
 	@Override
-	public void cancelarPassagem(int codPassagem) throws PassagemException {
-
-	}
-
-	@Override
-	public int admitirPiloto(String nome, String cpf) throws PilotoException {
+	public int registrarCliente(String nome, String cpf) throws InvalidInputException {
 		return 0;
 	}
 
 	@Override
-	public Piloto consultarPiloto(String cpf) throws PilotoException {
+	public Cliente consultarCliente(int codCliente) throws NotFoundException {
 		return null;
 	}
 
 	@Override
-	public void demitirPiloto(String cpf) throws PilotoException {
-
-	}
-
-	@Override
-	public int registrarVoo(int aeronave, String origem, String destino, String piloto, Date horario) throws VooException {
+	public int venderPassagem(int codCliente, int codVoo) throws InvalidInputException {
 		return 0;
 	}
 
 	@Override
-	public Voo consultarVoo(int codVoo) throws VooException {
+	public Passagem consultarPassagem(int codPassagem) throws NotFoundException {
 		return null;
 	}
 
 	@Override
-	public void cancelarVoo(int codVoo) throws VooException {
+	public void cancelarPassagem(int codPassagem) throws NotFoundException, InvalidInputException {
 
 	}
 
 	@Override
-	public void modificarVoo(Voo voo) throws VooException {
+	public int admitirPiloto(String nome, String cpf) throws InvalidInputException {
+		return 0;
+	}
+
+	@Override
+	public Piloto consultarPiloto(String cpf) throws NotFoundException {
+		return null;
+	}
+
+	@Override
+	public void demitirPiloto(String cpf) throws NotFoundException, InvalidInputException {
+
+	}
+
+	@Override
+	public int registrarVoo(int aeronave, String origem, String destino, String piloto, Date horario) throws InvalidInputException {
+		return 0;
+	}
+
+	@Override
+	public Voo consultarVoo(int codVoo) throws NotFoundException {
+		return null;
+	}
+
+	@Override
+	public void cancelarVoo(int codVoo) throws NotFoundException, InvalidInputException {
 
 	}
 }
