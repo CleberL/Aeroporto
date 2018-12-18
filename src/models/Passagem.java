@@ -5,14 +5,14 @@ import java.util.Objects;
 public class Passagem{
     private int codigo;
 	private int voo;
-	private int cliente;
+	private String cliente;
 	private int assento;
 
     public Passagem(int codigo) {
         this.codigo = codigo;
     }
 
-    public Passagem(int codigo, int voo, int cliente, int assento) {
+    public Passagem(int codigo, int voo, String cliente, int assento) {
         this.codigo = codigo;
 		this.voo = voo;
 		this.cliente = cliente;
@@ -35,11 +35,11 @@ public class Passagem{
 		this.codigo = codigo;
 	}
 
-	public int getCliente() {
+	public String getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(int cliente) {
+	public void setCliente(String cliente) {
 		this.cliente = cliente;
 	}
 

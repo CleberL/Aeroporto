@@ -8,8 +8,6 @@ import models.Cliente;
 import repositorios.RepositorioCliente;
 import repositorios.interfaces.InterfaceRepositorioCliente;
 
-import java.util.Random;
-
 public class ControllerCliente implements InterfaceControllerCliente {
 
     InterfaceRepositorioCliente repCliente = new RepositorioCliente();

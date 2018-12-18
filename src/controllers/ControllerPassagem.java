@@ -15,16 +15,16 @@ public class ControllerPassagem implements InterfaceControllerPassagem {
 	InterfaceRepositorioPassagem repPassagem = new RepositorioPassagem();
 
 	@Override
-	public int adicionar(int voo, int cliente, int assento) throws InvalidInputException {
+	public int adicionar(String cpfCliente, int voo, int assento) throws InvalidInputException {
 		Random random = new Random();
 		int codigo = random.nextInt(99999);
 
-		Passagem passagem = new Passagem(codigo, voo, cliente, assento);
+		Passagem passagem = new Passagem(codigo, voo, cpfCliente, assento);
 
 		try {
 			repPassagem.adicionar(passagem);
 		} catch(PassagemException e) {
-			codigo = adicionar(voo, cliente, assento);
+			codigo = adicionar(cpfCliente, voo, assento);
 		} catch (NullPointerException e) {
 			throw new InvalidInputException("PASSAGEM");
 		}

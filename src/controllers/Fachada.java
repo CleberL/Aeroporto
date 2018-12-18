@@ -5,6 +5,7 @@ import exception.*;
 import models.*;
 
 import java.util.Date;
+import java.lang.Math;
 
 public class Fachada implements InterfaceFachada {
 	private InterfaceControllerAeronave controllerAeronave = new ControllerAeronave();
@@ -16,7 +17,7 @@ public class Fachada implements InterfaceFachada {
 
 	@Override
 	public int registrarAeronave(int assentos) throws InvalidInputException {
-		return controllerAeronave.adicionar(assentos);
+		return controllerAeronave.adicionar(Math.abs(assentos));
 	}
 
 	@Override
@@ -26,6 +27,9 @@ public class Fachada implements InterfaceFachada {
 
 	@Override
 	public void registrarCliente(String nome, String cpf) throws InvalidInputException {
+		if(cpf == null) {
+			throw new InvalidInputException("CPF");
+		}
 		controllerCliente.adicionar(nome, cpf);
 	}
 
@@ -35,8 +39,10 @@ public class Fachada implements InterfaceFachada {
 	}
 
 	@Override
-	public int venderPassagem(int codCliente, int codVoo, int assento) throws InvalidInputException {
-		return controllerPassagem.adicionar(codCliente, codVoo, assento);
+	public int venderPassagem(String cpfCliente, int codVoo, int assento) throws InvalidInputException, NotFoundException {
+		consultarCliente(cpfCliente);
+		consultarVoo(codVoo);
+		return controllerPassagem.adicionar(cpfCliente, codVoo, assento);
 	}
 
 	@Override
@@ -51,6 +57,9 @@ public class Fachada implements InterfaceFachada {
 
 	@Override
 	public void admitirPiloto(String nome, String cpf) throws InvalidInputException {
+		if(cpf == null) {
+			throw new InvalidInputException("CPF");
+		}
 		controllerPiloto.adicionar(nome, cpf);
 	}
 
@@ -60,8 +69,10 @@ public class Fachada implements InterfaceFachada {
 	}
 
 	@Override
-	public int registrarVoo(int aeronave, String origem, String destino, String piloto, Date horario) throws InvalidInputException {
-		return controllerVoo.adicionar(aeronave, origem, destino, piloto, horario);
+	public int registrarVoo(int aeronave, String origem, String destino, String piloto, Date horario) throws InvalidInputException, NotFoundException {
+			consultarPiloto(piloto);
+			consultarAeronave(aeronave);
+			return controllerVoo.adicionar(aeronave, origem, destino, piloto, horario);
 	}
 
 	@Override
