@@ -1,7 +1,5 @@
 package models;
 
-import java.util.Objects;
-
 public class Aeronave {
 	private int codigo;
 	private int assentos;
@@ -31,16 +29,12 @@ public class Aeronave {
 		this.assentos = assentos;
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		Aeronave aeronave = (Aeronave) o;
-		return codigo == aeronave.codigo;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(codigo);
-	}
+	public boolean equals(Aeronave a) {
+	      boolean result = false;
+	      if (this.codigo == a.getCodigo()) {
+	         result = true;
+	      }
+	      return result;
+	   }   
+	
 }

@@ -16,6 +16,7 @@ public class ControllerPassagem implements InterfaceControllerPassagem {
 
 	@Override
 	public int adicionar(String cpfCliente, int voo, int assento) throws InvalidInputException {
+
 		Random random = new Random();
 		int codigo = random.nextInt(99999);
 
@@ -23,7 +24,7 @@ public class ControllerPassagem implements InterfaceControllerPassagem {
 
 		try {
 			repPassagem.adicionar(passagem);
-		} catch(PassagemException e) {
+		} catch (PassagemException e) {
 			codigo = adicionar(cpfCliente, voo, assento);
 		} catch (NullPointerException e) {
 			throw new InvalidInputException("PASSAGEM");
@@ -47,10 +48,11 @@ public class ControllerPassagem implements InterfaceControllerPassagem {
 	public Passagem procurar(int codigo) throws NotFoundException {
 		Passagem passagem = repPassagem.procurar(codigo);
 
-		if(passagem == null) {
+		if (passagem == null) {
 			throw new NotFoundException("PASSAGEM");
 		}
 
 		return passagem;
 	}
+
 }

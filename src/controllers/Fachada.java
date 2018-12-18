@@ -14,7 +14,6 @@ public class Fachada implements InterfaceFachada {
 	private InterfaceControllerPiloto controllerPiloto = new ControllerPiloto();
 	private InterfaceControllerVoo controllerVoo = new ControllerVoo();
 
-
 	@Override
 	public int registrarAeronave(int assentos) throws InvalidInputException {
 		return controllerAeronave.adicionar(Math.abs(assentos));
@@ -27,7 +26,7 @@ public class Fachada implements InterfaceFachada {
 
 	@Override
 	public void registrarCliente(String nome, String cpf) throws InvalidInputException {
-		if(cpf == null) {
+		if (cpf == null) {
 			throw new InvalidInputException("CPF");
 		}
 		controllerCliente.adicionar(nome, cpf);
@@ -40,9 +39,17 @@ public class Fachada implements InterfaceFachada {
 
 	@Override
 	public int venderPassagem(String cpfCliente, int codVoo, int assento) throws InvalidInputException, NotFoundException {
-		consultarCliente(cpfCliente);
-		consultarVoo(codVoo);
-		return controllerPassagem.adicionar(cpfCliente, codVoo, assento);
+		int voo;
+		if (!controllerVoo.verificarAssento(codVoo, assento)) {
+			consultarCliente(cpfCliente);
+			consultarVoo(codVoo);
+			voo = controllerPassagem.adicionar(cpfCliente, codVoo, assento);
+			controllerVoo.adicionarOcupado(codVoo, assento);
+		}else {
+			throw new InvalidInputException("ASSENTO");
+		}
+		
+		return voo;
 	}
 
 	@Override
@@ -57,7 +64,7 @@ public class Fachada implements InterfaceFachada {
 
 	@Override
 	public void admitirPiloto(String nome, String cpf) throws InvalidInputException {
-		if(cpf == null) {
+		if (cpf == null) {
 			throw new InvalidInputException("CPF");
 		}
 		controllerPiloto.adicionar(nome, cpf);
@@ -69,10 +76,12 @@ public class Fachada implements InterfaceFachada {
 	}
 
 	@Override
-	public int registrarVoo(int aeronave, String origem, String destino, String piloto, Date horario) throws InvalidInputException, NotFoundException {
-			consultarPiloto(piloto);
-			consultarAeronave(aeronave);
-			return controllerVoo.adicionar(aeronave, origem, destino, piloto, horario);
+	public int registrarVoo(int aeronave, String origem, String destino, String piloto, Date horario)
+			throws InvalidInputException, NotFoundException {
+		consultarPiloto(piloto);
+		consultarAeronave(aeronave);
+		int assentos = controllerAeronave.procurar(aeronave).getAssentos();
+		return controllerVoo.adicionar(aeronave, assentos, origem, destino, piloto, horario);
 	}
 
 	@Override

@@ -2,22 +2,28 @@ package models;
 
 import java.util.Date;
 import java.util.Objects;
+import java.util.ArrayList;
 
 public class Voo {
 	private int codigo;
 	private int aeronave;
+	private int qtAssentos;
 	private String origem;
 	private String destino;
 	private String piloto;
 	private Date horario;
+	
+	private ArrayList<Integer> ocupados = new ArrayList<Integer>();
+
 
     public Voo(int codigo) {
         this.codigo = codigo;
     }
 
-    public Voo(int codigo, int aeronave, String origem, String destino, String piloto, Date horario) {
+    public Voo(int codigo, int aeronave, int qtAssentos, String origem, String destino, String piloto, Date horario) {
         this.codigo = codigo;
         this.aeronave = aeronave;
+        this.setQtAssentos(qtAssentos);
         this.origem = origem;
         this.destino = destino;
         this.piloto = piloto;
@@ -84,4 +90,20 @@ public class Voo {
     public int hashCode() {
         return Objects.hash(codigo);
     }
+
+	public ArrayList<Integer> getOcupados() {
+		return ocupados;
+	}
+
+	public void addOcupado(int assento) {
+		ocupados.add(assento);
+	}
+
+	public int getQtAssentos() {
+		return qtAssentos;
+	}
+
+	public void setQtAssentos(int qtAssentos) {
+		this.qtAssentos = qtAssentos;
+	}
 }

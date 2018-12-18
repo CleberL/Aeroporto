@@ -9,9 +9,10 @@ import java.util.Date;
 
 public interface InterfaceControllerVoo {
 
-    int adicionar(int aeronave, String origem, String destino, String piloto, Date horario) throws InvalidInputException;
+	public int adicionar(int aeronave, int assentos, String origem, String destino, String piloto, Date horario) throws InvalidInputException;
     void remover(int codigo) throws NotFoundException, InvalidInputException;
     Voo procurar(int codigo) throws NotFoundException;
     ArrayList<Voo> listar();
-
+    boolean verificarAssento(int codVoo, int assento);
+    void adicionarOcupado(int codVoo, int assento);
 }
