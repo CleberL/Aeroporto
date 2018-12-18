@@ -30,7 +30,15 @@ public class RepositorioPiloto implements InterfaceRepositorioPiloto {
 
 	@Override
 	public Piloto procurar(String cpf) {
-		return pilotos.get(pilotos.indexOf(new Piloto(cpf)));
+		
+		for(Piloto piloto : pilotos) {
+			if(piloto.equals(new Piloto(cpf))) {
+				return piloto;
+			}
+		}
+		return null;
+		
+	
 	}
 
 	// TODO: fazer editar e listar

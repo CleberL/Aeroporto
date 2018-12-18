@@ -32,7 +32,13 @@ public class RepositorioPassagem implements InterfaceRepositorioPassagem {
 
 	@Override
 	public Passagem procurar(int codigo) {
-		return passagens.get(passagens.indexOf(new Passagem(codigo)));
+		for(Passagem passagem : passagens) {
+			if(passagem.equals(new Passagem(codigo))) {
+				return passagem;
+			}
+		}
+		return null;
+		
 	}
 
 	// TODO: fazer listar

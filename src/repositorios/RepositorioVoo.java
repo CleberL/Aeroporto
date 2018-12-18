@@ -32,7 +32,13 @@ public class RepositorioVoo implements InterfaceRepositorioVoo {
 
 	@Override
 	public Voo procurar(int codigo) {
-		return voos.get(voos.indexOf(new Voo(codigo)));
+		for(Voo voo : voos) {
+			if(voo.equals(new Voo(codigo))) {
+				return voo;
+			}
+		}
+		return null;
+		
 	}
 
 	@Override

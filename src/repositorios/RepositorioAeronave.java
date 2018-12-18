@@ -30,6 +30,12 @@ public class RepositorioAeronave implements InterfaceRepositorioAeronave {
 
     @Override
 	public Aeronave procurar(int codigo) {
-        return aeronaves.get(aeronaves.indexOf(new Aeronave(codigo)));
+    	for(Aeronave aeronave : aeronaves) {
+			if(aeronave.equals(new Aeronave(codigo))) {
+				return aeronave;
+			}
+		}
+		return null;
+		
 	}
 }

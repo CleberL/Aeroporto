@@ -3,6 +3,7 @@ package repositorios;
 import repositorios.interfaces.InterfaceRepositorioCliente;
 import exception.ClienteException;
 import models.Cliente;
+
 import java.util.ArrayList;
 
 public class RepositorioCliente implements InterfaceRepositorioCliente {
@@ -29,7 +30,13 @@ public class RepositorioCliente implements InterfaceRepositorioCliente {
 	@Override
 	public Cliente procurar(String cpf) {
 		// TODO: verificar erro de cpf == null
-		return clientes.get(clientes.indexOf(new Cliente(cpf)));
+		for(Cliente cliente : clientes) {
+			if(cliente.equals(new Cliente(cpf))) {
+				return cliente;
+			}
+		}
+		return null;
+		
 	}
 
 	// TODO: fazer editar e listar
