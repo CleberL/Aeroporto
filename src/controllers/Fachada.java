@@ -40,11 +40,12 @@ public class Fachada implements InterfaceFachada {
 	@Override
 	public int venderPassagem(String cpfCliente, int codVoo, int assento) throws InvalidInputException, NotFoundException {
 		int voo;
-		if (!controllerVoo.verificarAssento(codVoo, assento)) {
+		if (!controllerVoo.verificarAssento(codVoo, assento) && controllerVoo.procurar(codVoo).getQtAssentos() > 0) {
 			consultarCliente(cpfCliente);
 			consultarVoo(codVoo);
 			voo = controllerPassagem.adicionar(cpfCliente, codVoo, assento);
 			controllerVoo.adicionarOcupado(codVoo, assento);
+			controllerVoo.decrementarQtAssentos(codVoo);
 		}else {
 			throw new InvalidInputException("ASSENTO");
 		}

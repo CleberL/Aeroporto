@@ -13,6 +13,7 @@ public interface InterfaceControllerVoo {
     void remover(int codigo) throws NotFoundException, InvalidInputException;
     Voo procurar(int codigo) throws NotFoundException;
     ArrayList<Voo> listar();
+	public void decrementarQtAssentos(int codVoo);
     boolean verificarAssento(int codVoo, int assento);
     void adicionarOcupado(int codVoo, int assento);
 }

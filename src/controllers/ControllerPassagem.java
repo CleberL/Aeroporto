@@ -16,7 +16,7 @@ public class ControllerPassagem implements InterfaceControllerPassagem {
 
 	@Override
 	public int adicionar(String cpfCliente, int voo, int assento) throws InvalidInputException {
-
+		
 		Random random = new Random();
 		int codigo = random.nextInt(99999);
 

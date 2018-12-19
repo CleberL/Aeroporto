@@ -106,4 +106,8 @@ public class Voo {
 	public void setQtAssentos(int qtAssentos) {
 		this.qtAssentos = qtAssentos;
 	}
+	
+	public void decrementarQtAssentos() {
+		this.qtAssentos--;
+	}
 }

@@ -55,8 +55,11 @@ public class ControllerVoo implements InterfaceControllerVoo {
 
 		return voo;
 	}
+	
+	public void decrementarQtAssentos(int codVoo) {
+		repVoo.procurar(codVoo).decrementarQtAssentos();
+	}
 
-	@Override
 	public ArrayList<Voo> listar() {
 		return repVoo.listar();
 	}
